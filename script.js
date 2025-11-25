@@ -1,17 +1,34 @@
 const light = document.getElementById('headlight');
 
-function updateLightPosition(x,y) {
-    light.style.left = x + 'px';
-    light.style.top = y + 'px';
+let mouseX = 0;
+let mouseY = 0;
+let lightX = 0;
+let lightY = 0;
+
+const speed = 0.1;
+
+function animateLight() {
+    let distX = mouseX - lightX;
+    let distY = mouseY - lightY;
+
+    lightX = lightX + (distX * speed);
+    lightY = lightY + (distY * speed);
+
+    light.style.left = lightX + 'px';
+    light.style.top = lightY + 'px';
+
+    requestAnimationFrame(animateLight);
 }
 
-// Listens to mouse
 document.addEventListener('mousemove', (event) => {
-    updateLightPosition(event.clientX, event.clientY);
+    mouseX = event.clientX;
+    mouseY = event.clientY;
 });
 
-// Listens to touch
 document.addEventListener('touchmove', (event) => {
     const touch = event.touches[0];
-    updateLightPosition(touch.clientX, touch.clientY);
+    mouseX = touch.clientX;
+    mouseY = touch.clientY;
 }, { passive: false });
+
+animateLight();
