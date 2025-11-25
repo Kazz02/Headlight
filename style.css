@@ -7,9 +7,10 @@ body {
 }
 
 #headlight {
-    position: absoulute;
-    top: 0;
-    left: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
     width: 20px;
     height: 20px;
     background-color: white;
