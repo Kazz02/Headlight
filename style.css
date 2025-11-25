@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+    cursor: none;
+}
+
+#headlight {
+    position: absoulute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%; /* circle shape */
+
+    transform: translate(-50%, -50%);
+
+    box-shadow:
+    0 0 10px 5px white,
+    0 0 40px 20px rgba(255, 255, 255, 0.5),
+    0 0 100px 60px rgba(255, 255, 255, 0.2);
+
+    pointer-events: none;
+}
